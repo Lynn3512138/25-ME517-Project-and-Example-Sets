@@ -23,6 +23,29 @@ We subject this material to two different loading profiles: (a) step load $\sigm
 
 Determine the corresponding Laplace transforms of the strain functions $\mathcal{L}\{\varepsilon_1(t)\}$ and $\mathcal{L}\{\varepsilon_2(t)\}$. 
 
+1-1
+\subsection*{1--1.}
+(a) 
+\begin{align*}
+\varepsilon_1(t) &= \int_0^t J(t-\tau) \frac{d\sigma(\tau)}{d\tau} d\tau \\
+&= \int_0^t [J_\infty + (J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c})]\sigma_{0}\frac{dH(\tau)}{d\tau}d\tau \\
+&= \int_0^t [J_\infty + (J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c})]\sigma_{0}\delta(\tau)d\tau
+\end{align*}
+\begin{align*}
+    \mathcal{L}\{\varepsilon_1(t)\} &= \mathcal{L}\left\{\int_0^t J_\infty \sigma_0 \delta(\tau)d\tau\right\} + \mathcal{L}\left\{ \int_0^t(J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c}) \sigma_{0} \delta(\tau) d\tau\right\} \\
+    &= J_\infty \sigma_0 /s + (J_0-J_\infty)\sigma_0\frac{\tau_c}{(\tau_c+1)s}
+\end{align*}
+(b)
+\begin{align*}
+    \varepsilon_2(t) 
+&= \int_0^t [J_\infty + (J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c})]\sigma_{0}\frac{d\sin({\omega \tau})}{d\tau}d\tau \\
+&= \int_0^t [J_\infty + (J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c})]\sigma_{0}\cos({\omega \tau})d\tau
+\end{align*}
+\begin{align*}
+    \mathcal{L}\{\varepsilon_2(t)\} &= \mathcal{L}\left\{\int_0^t J_\infty \sigma_0 \cos({\omega \tau})d\tau\right\} + \mathcal{L}\left\{ \int_0^t(J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c}) \sigma_{0} \cos({\omega \tau}) d\tau\right\} \\
+    &= \frac{J_\infty \sigma_0}{s^2 + \omega^2}  + (J_0-J_\infty)\sigma_0\frac{\tau_c}{(\tau_c+1)(s^2+\omega^2)}
+\end{align*}
+
 \textit{\textbf{Dare mode:}} If you have taken complex analysis, you can compute the inverse transform of polynomial forms because this type of model yields terms with simple poles (i.e. linear in $s$). 
 The formulae for this (see e.g. \cite{rileyMathematicalMethodsPhysics2006} Chs. 24 and 25) are:
 \begin{equation*}
@@ -45,6 +68,40 @@ and you multiply each residue by the shift from zero, i.e.,
     \item $\bn{Q}^\intercal\bm{a} \cdot \bn{Q}^\intercal\bm{b} = \bm{a}\cdot\bm{b} $
 \end{itemize}
 
+
+\subsection*{1--1.}
+a)
+\begin{align*}
+\bm{p} \times (\bm{q} \times \bm{r}) &= \bm{p} \times(\epsilon_{ijk}q_{i}r_{j})_k \\
+  &= \epsilon_{lkm}p_{l}\epsilon_{ijk}q_i r_j \\
+  &=(\delta_{mi}\delta_{lj}-\delta_{mj}\delta_{li})p_l q_i r_j \\
+  &= p_j r_j q_m - p_i q_i r_m \\
+  &= (\bm{r} \cdot \bm{p}) \bm{q} - (\bm{q} \cdot \bm{p}) \bm{r}
+\end{align*}
+b)\ 
+\begin{align*}
+    (\bm{p} \times \bm{q}) \cdot (\bm{a} \times \bm{b}) &= (\epsilon_{ijk}p_i q_j)_k \ \cdot\ (\epsilon_{mnl}a_m b_n)_l \\
+    &= \delta_{kl}\epsilon_{ijk}\epsilon_{mnl}p_i q_ja_m b_n \\ 
+    &= \epsilon_{ijk}\epsilon_{mnk}p_i q_ja_m b_n \\
+    &= (\delta_{im}\delta_{jn}-\delta_{in}\delta_{jm})p_i q_ja_m b_n \\
+    &= (\delta_{im}p_i a_m)(\delta_{jn}q_j b_n) - (\delta_{jm}q_j a_m)(\delta_{in}p_i b_n) \\
+    &= (\bm{p} \cdot \bm{a}) (\bm{q} \cdot \bm{b}) - (\bm{q} \cdot \bm{a})(\bm{p} \cdot \bm{b})
+\end{align*}
+c)
+\begin{align*}
+    (\bm{a} \otimes \bm{b})(\bm{p} \otimes \bm{q}) &= (a_i b_j)_{ij} (p_m q_n)_{mn} \\
+    &= a_ib_lp_lq_n \\
+    &= a_iq_n (b_l q_l) \\
+    &= \bm{a}\otimes\bm{q}(\bm{b} \cdot \bm{p})
+\end{align*}
+d)  
+\begin{align*}
+    \bn{Q}^\intercal\bm{a} \cdot \bn{Q}^\intercal\bm{b} &= (Q_{ji}a_j) (Q_{ki}b_k) \\
+    &= Q_{ji}Q_{ki}a_j b_k \\
+    &= \delta_{jk}a_j b_k \\
+    &= \bm{a}\cdot\bm{b}
+\end{align*}
+
 \subsection*{1--3. \textbf{Tensors and vectors} [4 pts].}
 The second-order projection tensors $\bn{P}_{\bm{n}}^{||}$ and $\bn{P}_{\bm{n}}^{\perp}$ are useful operators that take a vector $\bm{u}$ and map that vector to its part parallel and perpendicular to a vector $\bm{n}$, respectively. 
 
@@ -65,6 +122,11 @@ The projection tensors have properties
 \end{align*}
 
 Using the projection tensors, show that $\bm{u} = (\bm{u} \cdot \bm{n}) \bm{n} + \bm{n} \times (\bm{u} \times \bm{n} )$.
+\subsection*{1-3}
+
+Since $(\bm{u} \cdot \bm{n})$ is a scalar, $(\bm{u} \cdot \bm{n})\otimes\bm{n} = (\bm{u} \cdot \bm{n})\bm{n}$. Thus, $(\bm{u} \cdot \bm{n})\bm{u} = \bn{P}_{\bm{n}}^{||} \bm{u}$, \\
+According to Problem 1-2, $ \bm{n} \times (\bm{u} \times \bm{n} ) = (\bm{n}\cdot \bm{n})\bm{u}-(\bm{u}\cdot\bm{n})\bm{n} = \bn{I}\bm{u}-(\bm{u} \cdot \bm{n})\otimes\bm{n}=(\bn{I} - \bm{n} \otimes \bm{n}) \bm{u} = \bn{P}_{\bm{n}}^{\perp} \bm{u} $, \\
+So, on the right side of the equation, it's $(\bn{P}_{\bm{n}}^{||}+\bn{P}_{\bm{n}}^{\perp})\bm{u} = \bm{u}$
 
 \bigskip
 \subsection*{1--4. \textbf{Vector and tensor calculus} [4 pts].} Show the following vector and tensor identities to be true using index notation:
@@ -75,7 +137,41 @@ Using the projection tensors, show that $\bm{u} = (\bm{u} \cdot \bm{n}) \bm{n} +
     \item $ (\bn{A} \bn{B}) \bn{:} \bn{C} = (\bn{A}^\intercal \bn{C})\bn{:} \bn{B} = (\bn{C} \bn{B}^\intercal)\bn{:} \bn{A}$
     \item Let $J = \det \bn{F}$. Show\footnote{It will help to use the expression for the determinant of a tensor in index notation!} that $\frac{\partial J}{\partial \bn{F}} = J \bn{F}^{-\intercal}$. 
     \end{itemize}
+\subsection*{1-4}
+a)
+\begin{align*}
+    \gradX \times (\phi \bm{a}) &= \epsilon_{ijk}(\phi a_k)_{,j} \\
+    &= \phi \epsilon_{ijk} a_{k,j} + \epsilon_{ijk} \phi_{,j}a_k \\
+    &= \phi \gradX \times \bm{a} + (\gradX\phi) \times \bm{a}
+\end{align*}
 
+b)
+According to Problem 1-2, 
+\begin{align*}
+    (\bm{a} \cdot \gradX) \bm{b} + (\bm{b} \cdot \gradX) \bm{a}=a_k b_{j,k} +b_k a_{j,k}
+\end{align*}    
+\begin{align*}
+    \bm{a} \times (\gradX \times \bm{b}) + \bm{b} \times (\gradX \times \bm{a}) &= \epsilon_{iml}\epsilon_{ijk}(a_l b_{k,j}) + \epsilon_{iml}\epsilon_{ijk}(b_l a_{k,j}) \\
+    &= (\delta_{mj}\delta_{kl}-\delta_{mk}\delta_{lj})a_l b_{k.j} +  \delta_{mk}\delta_{lj})b_l a_{k.j}  \\
+    &= a_kb_{k,j} - a_j b_{k,j} + b_k a_{k,j} - b_j a_{k,j}
+\end{align*}
+\begin{align*}
+    \gradX (\bm{a} \cdot \bm{b})  &= (a_k b_k)_{,j}=a_{k,j}b_k + a_k b_{k,j} \\
+    &= a_k b_{j,k} +b_k a_{j,k}+a_kb_{k,j} - a_j b_{k,j} + b_k a_{k,j} - b_j a_{k,j} = Right \ Side
+\end{align*}
+(Direct index change would cancel the term in the last equation.)\\
+
+c)
+\begin{align*}
+    (\bn{A} \bn{B}) \bn{:} \bn{C} &=A_{ij}B_{jk}C_{ik} \\
+    &= (A_{ij}C_{ik})B_{jk} = (\bn{A}^\intercal \bn{C})\bn{:} \bn{B}\\
+    &=(C_{ik}B_{jk})A_{ij}= (\bn{C} \bn{B}^\intercal)\bn{:} \bn{A}
+\end{align*}
+
+d)
+\begin{align*}
+    
+\end{align*}
 %\newpage
 \bigskip
 \subsection*{1--5. \textbf{Kinematics} [8 pts].} The Happy Gelatinous Cube (HGC, pictued) $\mathcal{G}$ exists on a domain of $\{-1\leq X_1 , X_3\leq1, 0\leq X_2 \leq 2\}$ at initial time $t=0$. 
