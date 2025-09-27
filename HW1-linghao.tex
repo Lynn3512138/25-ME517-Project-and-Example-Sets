@@ -1,0 +1,215 @@
+\subsection*{1--1}
+(a) 
+\begin{align*}
+\varepsilon_1(t) &= \int_0^t J(t-\tau) \frac{d\sigma(\tau)}{d\tau} d\tau \\
+&= \int_0^t [J_\infty + (J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c})]\sigma_{0}\frac{dH(\tau)}{d\tau}d\tau \\
+&= \int_0^t [J_\infty + (J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c})]\sigma_{0}\delta(\tau)
+d\tau
+\end{align*}
+\begin{align*}
+    \mathcal{L}\{\varepsilon_1(t)\} &= \mathcal{L}\left\{\int_0^t J_\infty \sigma_0 \delta(\tau)d\tau\right\} + \mathcal{L}\left\{ \int_0^t(J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c}) \sigma_{0} \delta(\tau) d\tau\right\} \\
+    &= J_\infty \sigma_0 /s + (J_0-J_\infty)\sigma_0\frac{\tau_c}{(\tau_cs+1)}
+\end{align*}
+(b)
+\begin{align*}
+    \varepsilon_2(t) 
+&= \int_0^t [J_\infty + (J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c})]\sigma_{0}\frac{d\sin({\omega \tau})}{d\tau}d\tau \\
+&= \int_0^t [J_\infty + (J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c})]\sigma_{0}\omega\cos({\omega \tau})d\tau
+\end{align*}
+\begin{align*}
+    \mathcal{L}\{\varepsilon_2(t)\} &= \mathcal{L}\left\{\int_0^t J_\infty \sigma_0\omega \cos({\omega \tau})d\tau\right\} + \mathcal{L}\left\{ \int_0^t(J_0-J_\infty)\exp(-\frac{t-\tau}{\tau_c}) \sigma_{0}\omega \cos({\omega \tau}) d\tau\right\} \\
+    &= \frac{J_\infty \sigma_0\omega}{s^2 + \omega^2}  + (J_0-J_\infty)\sigma_0\omega\frac{\tau_cs}{(\tau_cs+1)(s^2+\omega^2)}
+\end{align*}
+
+\subsection*{1--2}
+a)
+\begin{align*}
+\bm{p} \times (\bm{q} \times \bm{r}) &= \bm{p} \times(\epsilon_{ijk}q_{i}r_{j})_k \\
+  &= \epsilon_{lkm}p_{l}\epsilon_{ijk}q_i r_j \\
+  &=(\delta_{mi}\delta_{lj}-\delta_{mj}\delta_{li})p_l q_i r_j \\
+  &= p_j r_j q_m - p_i q_i r_m \\
+  &= (\bm{r} \cdot \bm{p}) \bm{q} - (\bm{q} \cdot \bm{p}) \bm{r}
+\end{align*}
+b)\ 
+\begin{align*}
+    (\bm{p} \times \bm{q}) \cdot (\bm{a} \times \bm{b}) &= (\epsilon_{ijk}p_i q_j)_k \ \cdot\ (\epsilon_{mnl}a_m b_n)_l \\
+    &= \delta_{kl}\epsilon_{ijk}\epsilon_{mnl}p_i q_ja_m b_n \\ 
+    &= \epsilon_{ijk}\epsilon_{mnk}p_i q_ja_m b_n \\
+    &= (\delta_{im}\delta_{jn}-\delta_{in}\delta_{jm})p_i q_ja_m b_n \\
+    &= (\delta_{im}p_i a_m)(\delta_{jn}q_j b_n) - (\delta_{jm}q_j a_m)(\delta_{in}p_i b_n) \\
+    &= (\bm{p} \cdot \bm{a}) (\bm{q} \cdot \bm{b}) - (\bm{q} \cdot \bm{a})(\bm{p} \cdot \bm{b})
+\end{align*}
+c)
+\begin{align*}
+    (\bm{a} \otimes \bm{b})(\bm{p} \otimes \bm{q}) &= (a_i b_j)_{ij} (p_m q_n)_{mn} \\
+    &= a_ib_lp_lq_n \\
+    &= a_iq_n (b_l q_l) \\
+    &= \bm{a}\otimes\bm{q}(\bm{b} \cdot \bm{p})
+\end{align*}
+d)  
+\begin{align*}
+    \bn{Q}^\intercal\bm{a} \cdot \bn{Q}^\intercal\bm{b} &= (Q_{ji}a_j) (Q_{ki}b_k) \\
+    &= Q_{ji}Q_{ki}a_j b_k \\
+    &= \delta_{jk}a_j b_k \\
+    &= \bm{a}\cdot\bm{b}
+\end{align*}
+
+\subsection*{1-3}
+
+According to Problem 1-2, $ \bm{n} \times (\bm{u} \times \bm{n} ) = (\bm{n}\cdot \bm{n})\bm{u}-(\bm{u}\cdot\bm{n})\bm{n} =(\bn{I} - \bm{n} \otimes \bm{n}) \bm{u} = \bn{P}_{\bm{n}}^{\perp} \bm{u} $, \\
+So, on the right side of the equation, it's $(\bn{P}_{\bm{n}}^{||}+\bn{P}_{\bm{n}}^{\perp})\bm{u} = \bm{u}$
+
+
+\subsection*{1-4}
+a)
+\begin{align*}
+    \gradX \times (\phi \bm{a}) &= \epsilon_{ijk}(\phi a_k)_{,j} \\
+    &= \phi \epsilon_{ijk} a_{k,j} + \epsilon_{ijk} \phi_{,j}a_k \\
+    &= \phi \gradX \times \bm{a} + (\gradX\phi) \times \bm{a}
+\end{align*}
+
+b)
+According to Problem 1-2, 
+\begin{align*}
+    (\bm{a} \cdot \gradX) \bm{b} + (\bm{b} \cdot \gradX) \bm{a}=a_k b_{j,k} +b_k a_{j,k}
+\end{align*}    
+\begin{align*}
+    \bm{a} \times (\gradX \times \bm{b}) + \bm{b} \times (\gradX \times \bm{a}) &= \epsilon_{iml}\epsilon_{ijk}(a_l b_{k,j}) + \epsilon_{iml}\epsilon_{ijk}(b_l a_{k,j}) \\
+    &= (\delta_{mj}\delta_{kl}-\delta_{mk}\delta_{lj})a_l b_{k.j} +  \delta_{mk}\delta_{lj})b_l a_{k.j}  \\
+    &= a_kb_{k,j} - a_j b_{k,j} + b_k a_{k,j} - b_j a_{k,j}
+\end{align*}
+\begin{align*}
+    \gradX (\bm{a} \cdot \bm{b})  &= (a_k b_k)_{,j}=a_{k,j}b_k + a_k b_{k,j} \\
+    &= a_k b_{j,k} +b_k a_{j,k}+a_kb_{k,j} - a_j b_{k,j} + b_k a_{k,j} - b_j a_{k,j} = Right \ Side
+\end{align*}
+(Direct dummy index change would cancel the term in the last equation.)\\
+
+c)
+\begin{align*}
+    (\bn{A} \bn{B}) \bn{:} \bn{C} &=A_{ij}B_{jk}C_{ik} \\
+    &= (A_{ij}C_{ik})B_{jk} = (\bn{A}^\intercal \bn{C})\bn{:} \bn{B}\\
+    &=(C_{ik}B_{jk})A_{ij}= (\bn{C} \bn{B}^\intercal)\bn{:} \bn{A}
+\end{align*}
+
+d) 
+To verify the equation, it's to verify $\frac{\partial J}{\partial \bn{F}}\bn{F}^{\intercal} = J\bn{I}$
+\begin{align*}
+    \frac{\partial J}{\partial \bn{F}} &= \frac{\partial \frac{1}{6}\epsilon_{ijk} \epsilon_{pql}\bn{F}_{ip}\bn{F}_{jq}\bn{F}_{kl}}{\bn{F}_{mn}} \\
+    &= \frac12 \epsilon_{mjk} \epsilon_{nql}\bn{F}_{jq}\bn{F}_{kl}\ (The\ chain\ rule\ applies\ to\ \bn{F}_{ip},\ \bn{F}_{jq},\ \bn{F}_{kl}\ separately,\ but\ they\ are\ all\ equal)
+\end{align*}
+
+So it's to prove ($\frac12 \epsilon_{mjk} \epsilon_{nql}\bn{F}_{jq}\bn{F}_{kl})_{m\times n}(F_{na})^{\intercal}=J\delta_{ma}$
+\begin{align*}
+    (\frac12\epsilon_{mjk} \epsilon_{nql}\bn{F}_{jq}\bn{F}_{kl})_{m\times n}\bn{F}_{na}^{\intercal} &= \frac12\epsilon_{mjk} \epsilon_{nql}\bn{F}_{jq}\bn{F}_{kl}\bn{F}_{an} \\
+    \epsilon_{nql}\bn{F}_{jq}\bn{F}_{kl}\bn{F}_{an} &= \frac16\epsilon_{ajk}\epsilon_{nql}\bn{F}_{jq}\bn{F}_{kl}\bn{F}_{an}\epsilon_{ajk}, \ Since\ \epsilon_{ajk}\epsilon_{ajk}=6\\
+    &= J\epsilon_{ajk} \\
+    Thus,\ \frac12\epsilon_{mjk} \epsilon_{nql}\bn{F}_{jq}\bn{F}_{kl}\bn{F}_{an} &=\frac12\epsilon_{mjk}J\epsilon_{ajk}\\&=J\delta_{ma} = Right\ Side
+\end{align*}
+Thus, $\frac{\partial J}{\partial \bn{F}}\bn{F}^{\intercal} = J\bn{I}$, $\frac{\partial J}{\partial \bn{F}} = J \bn{F}^{-\intercal}$
+%\newpage
+
+
+\subsection*{1--5}
+(a)
+I assume that the HGC deform homogeneously and that the deformation is linear along the coordinates. Plus, I would assume that the HGC is incompressible so the volume doesn't change.
+\medskip
+According to the description and the plot, the top and bottom face don't deform horizontally. At $\bm{e}_2$ direction, when $X_2 = 0, \bm{u}_2=0$, when $X_2 = 2, \bm{u}_2=\alpha\sin({\omega t})$,thus $\bm{u}_2 = \frac{\alpha}{2}\sin({\omega t}) X_2$.
+
+\medskip
+At $\bm{e}_1$ direction, the deformation is symmetrical to the $\bm{e}_1 - \bm{e}_3$ plane at $X_2 = 1$,and deform 0 at $X_1=0,X_2=0,\ X_2=2$, so  $\bm{u}_1 = f(t)X_1X_2(2-X_2)$. At $X_2=1,\ X_1=1$, $\bm{u}_1$ experiences largest deformation as $-\beta \sin{(\omega t})$. Therefore, $\bm{u}_1 = -\beta \sin{(\omega t})X_1X_2(2-X_2)$. Same to $\bm{e}_3$ direction, $\bm{u}_3 = -\beta \sin{(\omega t})X_3X_2(2-X_2)$.
+
+\medskip
+Since $\bn{F}_{ij} = \frac{\partial{\bm{u}_i}}{\partial{\bm{x}_j}}+\delta_{ij}$,\\
+$[\bn{F}(\bm{X})]^{\bm{e}}=\begin{pmatrix}
+1-\beta \sin{(\omega t})X_2(2-X_2) & 2\beta \sin{(\omega t})X_1(X_2-1) & 0\\
+0 & 1+\frac{\alpha}{2}\sin({\omega t}) & 0\\
+0 & 2\beta \sin{(\omega t})X_3(X_2-1)&1-\beta \sin{(\omega t})X_2(2-X_2)
+\end{pmatrix}$
+
+\medskip
+(b)\\
+When $X_2 = 1,[\bn{F}(\bm{X})]^{\bm{e}} = \begin{pmatrix}
+1-\beta \sin{(\omega t}) & 0 & 0\\
+0 & 1+\frac{\alpha}{2}\sin({\omega t})  & 0\\
+0 & 0&1-\beta \sin{(\omega t)}
+\end{pmatrix}$ 
+Let the orientation of the fiber be$(\cos\theta,\sin\theta,0),\ \bn{F}\bm{n}=\begin{pmatrix}
+1-\beta \sin{(\omega t}) & 0 & 0\\
+0 & 1+\frac{\alpha}{2}\sin({\omega t})  & 0\\
+0 & 0&1-\beta \sin{(\omega t)}
+\end{pmatrix}
+\begin{pmatrix}
+    \cos\theta \\ \sin\theta \\ 0
+\end{pmatrix}
+=\begin{pmatrix}
+    \cos\theta(1-\beta\sin{(\omega t)} \\ \sin\theta(1+\frac\alpha2\sin{(\omega t)} \\ 0
+\end{pmatrix}
+$ \\
+The strech magnitude is given by $||\bn{F}\bm{n}||=\sqrt{[\cos\theta(1-\beta\sin{(\omega t)}]^2+[\sin\theta(1+\frac\alpha2\sin{(\omega t)}]^2}$
+
+
+\medskip
+(c)
+\\
+At center (0,1,0),
+\begin{align*}
+\bn{F}(\bm{X_c})]^{\bm{e}}&=
+\begin{pmatrix}
+1-\beta \sin{(\omega t})&0&0\\
+    0& 1+\frac{\alpha}{2}\sin({\omega t})&0\\
+    0&0&1-\beta \sin{(\omega t})
+\end{pmatrix} \\
+    \bn{E}(t) &= 
+    \frac12(\bn{C}-\bn{I}) \\
+    &= \frac12(\bn{F^{\intercal}\bn{F}}-\bn{I})\\
+    &= \frac12 \begin{pmatrix}
+\beta^2\sin^2(\omega t)-2 \beta \sin{(\omega t})&0 & 0 \\
+0 & \frac{\alpha^2}{4}sin^2(\omega t)+\alpha \sin{(\omega t}) & 0 \\
+0 & 0 & \beta^2\sin^2(\omega t)-2 \beta \sin{(\omega t})
+\end{pmatrix} \\
+\bn{E_H}(t)&= \ln{\bn{U}} \\
+&= \ln{\sqrt{\bn{F^{\intercal}\bn{F}}}}\\
+& = \frac12\ln{\bn{F^{\intercal}\bn{F}}} \\
+\end{align*}
+= $\frac12 \begin{pmatrix}
+\ln{(\beta^2\sin^2(\omega t)-2 \beta \sin{(\omega t})+1)}&0 & 0 \\
+0 & \ln{(\frac{\alpha^2}{4}sin^2(\omega t)+\alpha \sin{(\omega t})+1)} & 0 \\
+0 & 0 & \ln{(\beta^2\sin^2(\omega t)-2 \beta \sin{(\omega t})+1)}
+\end{pmatrix}$ 
+
+\medskip
+For eigenvalues of $\bn{E}(t),\ \lambda_1=\lambda_3=\frac12[\beta^2\sin^2(\omega t)-2 \beta \sin{(\omega t})]$, its minimum is $\frac12(\beta^2-2\beta)$ when $\sin{(
+\omega t)}=1$. its maximum is $\frac12(\beta^2+2\beta)$ when $\sin{(
+\omega t)}=-1$.  $\lambda_2=\frac12[\frac{\alpha^2}{4}sin^2(\omega t)+\alpha \sin{(\omega t})]$, its minimum is $\frac12(\alpha^2/4-\alpha)$ when $\sin{(
+\omega t)}=-1$. its maximum is $\frac12(\alpha^2/4+\alpha)$ when $\sin{(
+\omega t)}=1$.\\
+For eigenvalues of $\bn{E_{\bn{H}}}(t),\ \lambda_1=\lambda_3=\frac12\ln[\beta^2\sin^2(\omega t)-2 \beta \sin{(\omega t})+1]$, its minimum is $\ln(|1-\beta|)$ when $\sin{(
+\omega t)}=1$. its maximum is $\ln(1+\beta)$ when $\sin{(
+\omega t)}=-1$.  $\lambda_2=\frac12\ln[\frac{\alpha^2}{4}sin^2(\omega t)+\alpha \sin{(\omega t})+1]$, its minimum is $\ln(1-\alpha/2)$ when $\sin{(
+\omega t)}=-1$. its maximum is $\ln(1+\alpha/2)$ when $\sin{(
+\omega t)}=1$.
+
+\medskip
+When $\alpha$ get larger, the quadratic term in the eigenvalues of $\bn{E}(t)$ dominates thus they will be more symmetric about zero. However the eigenvalues of $\bn{E_{\bn{H}}}(t)$ still stays asymmetric.
+
+\medskip
+(d) At (1/2,2,1/2), the strain vector $\bm{u}$ is $(0, \alpha\sin{(\omega t)}, 0),\  \ \bm{A}(\bm{X}_1)=\frac{\partial \bm{u}^2}{\partial^2 t} =(0, -\alpha\omega^2\sin{(\omega t)},0)$
+
+\bigskip 
+Project I 
+
+\medskip
+Hemorheology, the study of the rheological properties of blood, is a niche yet profoundly valuable interdisciplinary field that bridges physiology, fluid mechanics, and disease pathology. Blood, the vital tissue sustaining human life, is far from a simple Newtonian fluid. Its complex composition—rich in cells, proteins, and macromolecules—gives rise to pronounced non-Newtonian behaviors, including shear-thinning viscosity, viscoelasticity, and thixotropy. These characteristics are not static: they respond dynamically to physiological and pathological conditions. When a person suffers from disease, the rheological properties of their blood can undergo significant alterations, which in turn affect tissue perfusion, microcirculation, and organ function.
+
+\medskip
+My personal motivation for exploring this field comes from a possible family history of Alzheimer’s disease. Recent studies show that changes in blood flow and blood vessel health may play an important role in how Alzheimer’s begins and progresses. When blood flow is not smooth, it can put unusual shear stress on the thin layer of cells that protect the brain. This protective layer can become weaker or “leakier”, allowing unwanted substances and inflammation to enter brain tissue. Over time, this process may make the brain more vulnerable to the damage that causes memory loss and other symptoms. Because of this, looking at blood flow and its mechanical properties can offer a fresh way to study Alzheimer’s disease—not just as a brain problem, but as one connected to the whole body’s circulation.(\cite{chang2007hemorheological}
+
+\medskip
+Yet Alzheimer’s disease is only one example where hemorheology holds great promise. Similar principles can be applied to conditions ranging from diabetes and cardiovascular disease to cancer, where altered blood viscosity and microcirculatory flow are implicated in disease progression. To study these phenomena rigorously, I envision employing mechanical principles to model blood’s stress responses under physiologically relevant flow conditions. This effort would involve constructing mathematical models describing blood stress–strain behavior, including both linear and nonlinear viscoelastic regimes, and validating these models through rheological experiments. In addition, chemical and computational simulation techniques could be used to investigate how changes in blood rheology alter the biochemical microenvironment, particularly in the brain and other sensitive tissues. Such an approach would make it possible to connect macroscopic mechanical properties with molecular-level interactions and cellular signaling pathways.
+
+\medskip
+The theoretical framework for this research relies heavily on the construction of constitutive equations for linear viscoelasticity and the application of robust experimental characterization methods—precisely the tools provided by this course. If tangible progress is made, the potential impact is considerable. Early diagnosis of disease risk through blood rheological profiling could transform preventive medicine, allowing interventions to be implemented before irreversible damage occurs. Beyond clinical applications, insights gained from hemorheology could inspire new materials and micro-robotic designs for targeted drug delivery and minimally invasive surgical procedures, bridging the gap between medical science and engineering.
+
+\medskip
+In short, hemorheology offers a powerful, underexplored avenue for understanding disease mechanisms and improving human health, making it a field I am deeply motivated to study and advance.
+
