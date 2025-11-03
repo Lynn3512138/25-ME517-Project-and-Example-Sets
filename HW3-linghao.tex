@@ -1,0 +1,181 @@
+\subsection*{3--1}
+(a) \\
+\includegraphics[width=0.7\linewidth]{instr-figures/compliance_plot.png}
+
+(b)
+\begin{align*}
+    \mathcal{L}\{J_c(t)\}(s)&=\frac1{1000}(\frac{10}{s}-\frac{5}{s+1/4}-\frac{3}{s+1/8}) \\
+\mathcal{L}\{G_r(t)\} &=\frac1{s^2\widetilde{J_c}(s)} \\
+&= \frac{500(32s^2+12s+1)}{s(32s^2+38s+5)} \\
+&= \frac{100}{s}+\frac{12800s+2200}{32s^2+38s+5} \\
+&=\frac{100}s+\frac{12800s+2200}{32[(s+\frac{19}{32})^2-\frac{201}{1024}]} \\
+&= \frac{100}s+\frac{400(s+\frac{19}{32})-168.75}{(s+\frac{19}{32})^2-\frac{201}{1024}} \\
+&= \frac{100}s+400 \times\frac{s+\frac{19}{32}}{(s+\frac{19}{32})^2-\frac{201}{1024}}-381 \times \frac{\sqrt{\frac{201}{1024}}}{(s+\frac{19}{32})^2-\frac{201}{1024}} \\
+G_r(t)\ &= \mathcal{L}^{-1}\{\bar{G}_r(s)\} = 100 +400e^{-\frac{19}{32}t}\cosh(0.443t)-381e^{-\frac{19}{32}t}\sinh(0.443t) \\
+&=100+e^{-0.594t}(400\cosh(0.443t)-381\sinh(0.443t)) \\
+&= 100+e^{-0.594t}(9.5e^{0.443t}+390.5e^{-0.443t}) \\
+ &= 100 + 9.5e^{-0.151t}+390.5e^{-1.037t} \\
+\end{align*}
+\\
+So the relaxation time now is $\tau_1=1/0.151=6.62,\ \tau_2=1/1.037=0.964$. They are much smaller than the creep relaxation time.
+
+\bigskip
+\subsection*{3--2}
+(a) Say the single spring has modulus $E_1$, the K-V element has $E_2$ and $\eta_2$ parameters, respectively. The single spring has strain, stress $\epsilon_1,\ \sigma_1$, while the K-V  $\epsilon_2,\ \sigma_2$. Thus, we have
+\begin{gather*}
+    \sigma = \sigma_1 = \sigma_2 \\
+    \epsilon = \epsilon_1 + \epsilon_2 \\
+    \sigma_1 = E_1\epsilon_1,\ \dot{\sigma}_1 = E_1\dot{\epsilon}_1\\
+    \sigma_2=E_2\epsilon_2+\eta_2\dot{\epsilon}_2 \\
+\end{gather*}
+Then, we have
+\begin{align*}
+    E_2\sigma_1+\eta_2\dot{\sigma}_1+E_1\sigma_2 &=E_2 E_1\epsilon_1+\eta_2 E_1 \dot{\epsilon}_1 +E_1E_2\epsilon_2 +E_1\eta_2\dot{\epsilon}_2 \\
+    (E_1+E_2)\sigma+\eta_2\dot{\sigma}&=E_1 E_2 \epsilon+E_1\eta_2\dot{\epsilon} \\
+\end{align*}
+which is our constitutive equation.
+
+\medskip
+(b)Do the Laplace transform of the constitutive equation, and assume the initial condition $\epsilon(0)=\sigma(0)=0$, we have
+$(E_1+E_2)\bar{\sigma}(s)+\eta_2 s\bar{\sigma}(s)=E_1E_2\bar{\epsilon}(s)+E_1\eta_2 s \bar{\epsilon}(s)$, \\
+Thus,
+\begin{align*}
+    \bar{\epsilon}(s) &=\frac{E_1+E_2+s\eta_2}{E_1E_2+E_1\eta_2 s}\bar{\sigma}(s)\\
+    \bar{\sigma}(s)&=\frac{[E_1E_2+E_1\eta_2 s]\bar{\epsilon}(s)}{E_1+E_2+s\eta_2}  \\
+\end{align*}
+While we have $\bar{\epsilon}(s)=s\bar{J}_c(s)\bar{\sigma}(s)$ and $\bar{\sigma}(s)=s\bar{G}_r(s)\bar{\epsilon}(s)$, we get
+\begin{align*}
+    \bar{J}_c(s)&=\frac{(\frac{E_1}{E_2}+1)\frac1s+\tau }{E_1+E_1\tau s } \\
+    &= (\frac1{E_1}+\frac1{E_2})\frac1s-\frac{E_1 \tau}{E_2(E_1+E_1\tau s)} \\
+    &= (\frac1{E_1}+\frac1{E_2})\frac1s-\frac{1}{E_2(\frac1{\tau}+s)} \\
+    {J}_c(t) &=(\frac1{E_1}+\frac1{E_2})-\frac{1}{E_2}e^{-\frac t\tau} \\
+    \bar{G}_r(s)&=\frac{\frac{E_1}{s}+E_1 \tau}{\frac{E1}{E_2}+1+\tau s} \\
+    &= \frac{E_1E_2}{(E_1+E_2)s}+\frac{{E_1}^2\tau}{(E_1+E_2)(\frac{E_1}{E_2}+1+\tau s)} \\
+    &= \frac{E_1E_2}{(E_1+E_2)s}\frac{{E_1}^2}{(E_1+E_2)[(\frac{E_1}{E_2}+1)\frac 1{\tau}+ s]} \\
+    {G}_r(t) &=\frac{E_1E_2}{E_1+E_2}+\frac{{E_1}^2}{E_1+E_2}\exp({-\frac {(E_1+E_2)t} {E_2 \tau}})
+\end{align*}
+where $\tau = \frac{\eta_2}{E_2}$
+
+\medskip
+(c) The two different models follow the same response to the behavior. Say the spring in the 3-parameter Maxwell model has modulus $E'_1$, the Maxwell element has modulus and viscosity of $E'_2, \eta'_2$, and $\tau' = \eta'_2 / E'_2$, respectively. Then they have the relations:
+\begin{align*}
+    E'_1&=\frac{E_1 E_2}{E_1+E_2} \\
+    E'_2 &= \frac{{E_1}^2}{E_1+E_2} \\
+    \tau' &=\frac{E_2}{E_1+E_2}\tau \\
+    \eta'_2 &=\frac{E_1^2}{(E_1+E_2)^2}\eta_2 \\
+\end{align*}
+
+\bigskip
+\subsection*{3--3}
+(a) \\
+% Main nodes
+\begin{circuitikz}
+  \draw (2,4.5) to[short] (2,4);
+  \draw (2,4) to[short] (0,4)
+              to[spring, l=$E_0$] (0,0)  % 添加 E0 标签
+              to[short] (2,0);
+  \draw (2,4) to[spring, l=$E_1$] (2,2)  % 添加 E1 标签
+              to[damper, l=$\eta_1$] (2,0);  % 添加 η1 标签
+  \draw (2,4) to[short] (4,4)
+              to[spring, l=$E_2$] (4,2)  % 添加 E2 标签
+              to[damper, l=$\eta_2$] (4,0)  % 添加 η2 标签
+              to[short] (2,0);
+  \draw (2,0) to[short] (2,-0.5);
+\end{circuitikz}
+
+where$ E_0=10C_r,\ E_1=100C_r,\ E_2=200C_r,\ \frac{\eta_1}{E_1}=1,\ \frac{\eta_2}{E_2}=0.5$
+
+\medskip
+(b)
+\begin{align*}
+    E'(\omega)&=E_{\infty}+\omega\int^{\infty}_{0}\tilde{E}(t')\sin\omega t'dt' \\
+    &= 10C_r+100C_r\omega\int^{\infty}_{0}(2e^{-2t'}+e^{-t'})\sin\omega t'dt' \\
+    &= 10C_r +100C_r\omega(\frac{2\omega}{4+\omega^2}+\frac{\omega}{1+\omega^2}) \\
+    E''(\omega)&=\omega\int^{\infty}_{0}\tilde{E}(t')\cos\omega t'dt' \\
+    &=100C_r\omega\int^{\infty}_{0}(2e^{-2t'}+e^{-t'})\cos\omega t'dt' \\
+    &=100C_r\omega(\frac{4}{4+\omega^2}+\frac{1}{1+\omega^2}) \\
+    \tan\delta &= \frac{E''(\omega)}{E'(\omega)} \\&= \frac{100C_r\omega(\frac{4}{4+\omega^2}+\frac{1}{1+\omega^2})}{10C_r +100C_r\omega(\frac{2\omega}{4+\omega^2}+\frac{\omega}{1+\omega^2})} \\
+    &=\frac{10\omega(\frac{4}{4+\omega^2}+\frac{1}{1+\omega^2})}{1+10\omega(\frac{2\omega}{4+\omega^2}+\frac{\omega}{1+\omega^2})} \\
+\end{align*}
+\includegraphics[width=0.7\linewidth]{instr-figures/ps3-3.png}
+
+\bigskip
+\subsection*{3--4}
+(a) \\
+\begin{equation*}
+   \sigma(t)=10\epsilon_0+2\cdot0.2^\alpha\frac{t^{-\alpha}}{\Gamma(1-\alpha)}\epsilon_0
+\end{equation*}
+\\
+\includegraphics[width=0.7\linewidth]{instr-figures/ps3-4-1.png}
+\\
+(b) \\
+Doing the Laplace transform of $G_r(t)$ leads to the following:
+\begin{align*}
+    \bar{G}_r(s) &= \frac{10}s+2\cdot0.2^\alpha s^{\alpha-1} \\
+    \bar{J}_c(s)&=\frac1{s^2(\frac{10}s+2\cdot0.2^\alpha s^{\alpha-1})} \\
+    &=\frac1{s(10+2\cdot0.2^\alpha s^{\alpha})} \\
+    &=\frac1{10} \times \frac{\frac{10}{2\cdot 0.2^\alpha}}{s(s^\alpha+\frac{10}{2\cdot 0.2^\alpha})} \\
+    J_c(t)&=\frac1{10}[1-E_{0.2}(-\frac{10 t^\alpha}{2\cdot 0.2^\alpha})] \\
+\end{align*}
+where $E_\alpha(\cdot)$ gives Mittag-Leffler function, and the Laplace inverse transform is based on property $
+\mathcal{L}\left\{ 1 - E_{\alpha}(-\lambda t^{\alpha}) \right\}
+= \frac{\lambda}{s\left(s^{\alpha} + \lambda\right)} $
+\\
+The stress is $\sigma(t) = \sigma_0(\mathcal{H}(t)-\mathcal{H}(t-5))$, then the strain will be
+\begin{equation*}
+    \epsilon = \sigma_0 [J_c(t)\mathcal{H}(t)-J_C(t-5)\mathcal{H}(t-5)]
+\end{equation*}
+\includegraphics[width=0.7\linewidth]{instr-figures/ps3-4-2.png}
+
+\medskip
+(c)
+ a step stress of only length $t=10$, 
+ \begin{equation*}
+    \epsilon = \sigma_0 [J_c(t)\mathcal{H}(t)-J_C(t-10)\mathcal{H}(t-10)]
+\end{equation*}
+\includegraphics[width=0.7\linewidth]{instr-figures/ps3-4-3.png}
+
+\bigskip
+\bigskip
+\subsection*{3--5}
+(a) $E_d = \frac43 \pi R^3\rho g[h_0-h(R)]$
+
+\medskip
+(b) \\
+\includegraphics[width=0.7\linewidth]{instr-figures/ps3-5-1.png} \\
+Since the dropping event doesn’t have the reverse direction of he strain, the stress-strain curve can
+be seen only half the cycle of the Lissajous plot. The stored energy is from the elastic aspect of the
+matertial. In the Lisaajous figure, the pure elastic material is a straight line across the origin. The
+peak stored energy happens when the strain reaches its maximum. It can be interpreted, therefore,
+the area between this straight line and the origin, which is the triangle area form by two black
+dashed lines and x axis in the plot above. The maximum strain is B, and the slope of this straght
+line equals $G'= B \cos\delta$. Thus, the total energy is $\frac12 B^2 \cos\delta$.
+
+\medskip
+(c) The dissipation energy from Lissajous plot is the area in the ellipse area. A is the intercept
+on the x axis of the curve. Thus, the semi-minor axis can be approximated with $A\sqrt{2}$, while the
+semi-major axis can be approximated as $\sqrt2 B$. Thus, the whole area, namely the dissipated energy,
+equals $\frac12 \pi AB$
+
+\medskip
+(d) $A = B \sin \delta$, so the ratio between dissipated and stored energy is
+\begin{equation*}
+    \frac{E_d}{E_s}=\frac{\frac12 \pi B^2 \sin\delta}{\frac12 B^2 \cos\delta}=\pi \tan\delta \\
+\end{equation*}
+The real stored energy is $\frac43 \pi R^3\rho gh_0$, so
+\begin{align*}
+    \frac{E_d}{E_s}&=\frac{\frac43 \pi R^3\rho g[h_0-h(R)]}{\frac43 \pi R^3\rho gh_0} = 1-\frac{h(R)}{h_0}=\pi \tan\delta \\
+    \tan\delta &= \frac1\pi - \frac{h(R)}{\pi h_0}
+\end{align*}
+
+\medskip
+(e)From different ball size,
+\begin{align*}
+    \omega_{min} &=\frac1{0.025\times1}= 40Hz \\
+    \omega_{max} &= \frac 1{0.025\times10^-3} =4\times10^4Hz \\
+\end{align*}
+So from 40 to $4\times10^4$ Hz, this material is calibrated.
+\bigskip
+\bigskip
+Part III
+\includepdf[pages=-]{part3.pdf}
