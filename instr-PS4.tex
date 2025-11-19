@@ -24,6 +24,30 @@ Say we determine the maximum deflection in the beam at different times to be
     \end{align}
 From this, calibrate the material properties.
 
+
+\subsection*{4--1}
+
+From the class, the load is distributed as function
+\begin{equation*}
+    u(y,t) = -\frac{x^4 - 2Lx^3+L^3 x}{24E}\int^t_{0} \phi(t-\tau)\dot{J_c}(\tau) d\tau  \\
+\end{equation*}
+Do the Laplace transformation, we get
+\begin{align*}
+    \mathcal{L}\{u(y,t)\} &= -\frac{x^4 - 2Lx^3+L^3 x}{24E} s \phi(s) J_c(s) \\
+    &= -\frac{x^4 - 2Lx^3+L^3 x}{24E} s \frac 3s (\frac{J_{\infty}}{s} + \frac{J_0-J_{\infty}}{s+1/\tau_c}) \\
+    &= -\frac{x^4 - 2Lx^3+L^3 x}{8E} (\frac{J_{\infty}}{s} + \frac{J_0-J_{\infty}}{s+1/\tau_c}) \\
+u(y,t) &= -\frac{x^4 - 2Lx^3+L^3 x}{8E} (J_\infty + (J_0 - J_\infty) \exp\left[-\frac{t}{\tau_c}\right]) \\
+\end{align*}
+
+From $-(x^4 - 2Lx^3+L^3 x)$, the maximum deflection point is at $\frac L2$. The maximum $u_y$ is $\frac{-5L^4}{128I}J_c(t)$. For three points given in the problem we can get 
+\begin{align*}
+\frac{-5\times4^4}{128} (J_\infty + (J_0 - J_\infty) \exp\left[-\frac{30}{\tau_c}\right]) &= -0.6 \\
+\frac{-5\times4^4}{128} (J_\infty + (J_0 - J_\infty) \exp\left[-\frac{60}{\tau_c}\right]) &= -0.75 \\
+    \frac{-5\times4^4}{128} J_{\infty} &= -1 \\
+\end{align*}
+Solve these questions, we get 
+$J_{\infty}=0.1$
+
 \bigskip
 \subsection*{4--2. \textbf{Ramp up the torque} [4 pts].} 
 A viscoelastic cylinder $AB$ is fixed on its end $A$ and simply supported on its opposite end at $B$. 
@@ -31,6 +55,25 @@ At point $B$, a second, rigid rod is joined to the end such that exerting a forc
 A point force of magnitude $P_0$ is applied to the rigid rod, causing the front face to turn counterclockwise. 
 The point force travels along the rod such that its distance from the bar's neutral axis $a(t)$ is direct in time, i.e., $a(t) = \alpha t$, where $\alpha$ is a constant. 
 What is the angular rotation of the end $B$ as a function of time, $\Phi(t)$?
+
+\subsection*{4--2}
+The time-dependent torque on B is $T_z = \alpha P_0 t$. For viscoealstic cylinder, we have the relation 
+\begin{equation*}
+    \frac{\partial(\bar{\phi}(z,s)}{\partial z} =\frac 1{J_z} \bar{T_z}(z,s)\cdot\bar{\mu_c}(s) \\
+\end{equation*}
+We have 
+\begin{equation*}
+    \frac{\partial{\phi}(z,t)}{\partial z} = \frac 1{J_z} T_z(z,t) *\mu_c(t) \\
+\end{equation*}
+Since the twisting moment is the same across the whole cylinder, which implies $\frac{\partial{\phi(z,t)}}{\partial z}$ is independent of z, leading to
+\begin{equation*}
+    \phi(z,t) = \Phi(t)\frac zL
+\end{equation*} \\
+Thus, we obtain
+\begin{equation*}
+    \Phi(t) = \frac {\alpha L P_0} {J_z}t *\mu_c(t) \\
+\end{equation*}
+where $J_z$ is , $\mu_c$ is the shear compliance.
 
 \bigskip
 \subsection*{4--3. \textbf{L-shaped beam} [4 pts].}
@@ -43,7 +86,16 @@ What is the angular rotation of the end $B$ as a function of time, $\Phi(t)$?
 \end{wrapfigure}
 A one-piece polymeric member \textit{ABC} consists of two segments of length $L$ at a right angle from one-another and encastred at $A$, as shown. 
 Its neutral axes both lie in the $x-z$ plane when unloaded. 
-Assuming the creep compliance in shear to be $\mu_c{t}$ and the creep compliance in axial tension to be $E_c(t)$, determine (a) the deflection at $C$ in terms of the time-varying force $F(t)$ and (b) the stress tensor $\mathbf{\sigma}(t)$ at the square surface element located above $A$.  
+Assuming the creep compliance in shear to be $\mu_c{t}$ and the creep compliance in axial tension to be $E_c(t)$, determine (a) the deflection at $C$ in terms of the time-varying force $F(t)$ and (b) the stress tensor $\mathbf{\sigma}(t)$ at the square surface el ement located above $A$.  
+
+\subsection*{4--3}
+From the free-body diagram, we have
+\begin{align*}
+    A(t) &= F(t) \\
+    T_A(t) &= F(t)L
+    
+\end{align*}
+
 
 \newpage
 \subsection*{4--4. \textbf{Fibrous material} [4 pts].}
@@ -64,6 +116,13 @@ where $I_1(\bn{C}) = \textrm{tr}(\bn{C})$ and $I_a(\bn{C},\hat{\bm{a}}_0) = \hat
 
 \medskip
 (c) Find the first Piola-Kirchhoff and Cauchy stress expressions with an applied deformation gradient tensor of $\bn{F}$.
+
+\subsection*{4--4}
+(a) 
+\begin{equation*}
+    \widetilde{\psi}(\bn{QF})=\frac{1}{2}C_{10} (I_1(\bn{F^T Q_T Q F}-3) + \frac{1}{4} k (I_a(\bn{F^T Q_T Q F}) - 1)^2
+\end{equation*}
+Since $\bn{Q_TQ} = I$, so the 
 
 
 \bigskip
